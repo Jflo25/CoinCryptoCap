@@ -1,10 +1,12 @@
 import React from 'react'
-import CoinSearch from '../components/CoinSearch'
+import CryptoList from '../components/CryptoList'
+import Trending from '../components/Trending'
 
 const Home = ({coins}) => {
   return (
-    <div>
-      <CoinSearch coins={coins}/>
+    <div className='w-[90%] mx-auto'>
+      <Trending/>
+      <CryptoList coins={coins}/>
     </div>
   )
 }

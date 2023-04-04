@@ -9,6 +9,7 @@ import Account from "./Routes/Account";
 import axios from 'axios'
 import Trending from "./components/Trending";
 import CoinPage from "./Routes/CoinPage";
+import Services from "./Routes/Services";
 
 function App() {
   const [coins , setCoins] = useState ([]);
@@ -35,12 +36,12 @@ function App() {
  
  return <ThemeProvider>
  <Navbar/>
- <Trending/>
  <Routes>
     <Route path='/' element={<Home coins={coins} />}/>
     <Route path='/signin' element={<SignIn/>}/>
     <Route path='/signup' element={<SignUp/>}/>
     <Route path='/account' element={<Account/>}/>
+    <Route path='/services' element={<Services/>}/>
     <Route path='/coin/:coinId' element={<CoinPage/>}/>
     <Route path=':coinId' />
  </Routes>

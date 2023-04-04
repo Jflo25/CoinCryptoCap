@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import CoinItem from './CoinItem'
+import { Link } from 'react-router-dom'
+import CoinDetails from './CoinDetails'
 
-const CoinSearch = ({coins}) => {
+const CryptoList = ({coins}) => {
 
   const [search,setSearch] = useState('')
 
 
   return (
-    <div className='rounded-div my-4'>
+    <div className='rounded-div my-4 mx-auto'>
       <div className='flex flex-col md:flex-row justify-between pt-4 pb-6 text-center md:text-right '>
         <h1 className='text-2xl font-bold my-2'>Search Crypto</h1>
         <form>
@@ -17,7 +18,7 @@ const CoinSearch = ({coins}) => {
 
       <table className='w-full border-collapse text-center '>
         <thead>
-          <tr className='border-b'>
+          <tr className='border-b flex justify-between'>
             <th></th>
             <th className='px-4'>#</th>
             <th className='text-left'>Coin</th>
@@ -40,7 +41,9 @@ const CoinSearch = ({coins}) => {
             return value
           }
           }).map((coin) =>(
-        <CoinItem key={coin.id} coin={coin}/>
+        <Link to={/CoinPage/}>
+          <CoinDetails key={coin.id} coin={coin} />
+        </Link>  
           ))} 
         </tbody> 
       </table>
@@ -48,4 +51,4 @@ const CoinSearch = ({coins}) => {
   )
 }
 
-export default CoinSearch
+export default CryptoList

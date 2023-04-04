@@ -12,7 +12,7 @@
 
 /*setting up color theme prior to the project to provide ease of use */
 .dark {
-  --color-bg-primary: #1B262C;
+  --color-bg-primary: #171824;
   --color-bg-secondary: #5684a3;
   --color-text-primary:#3282B8;
   --color-text-secondary:#BBE1FA;
@@ -22,7 +22,7 @@
 }
 
 .light {
-  --color-bg-primary: #4f1fc0;
+  --color-bg-primary: #171824;
   --color-bg-secondary: #0096FF;
   --color-text-primary:#00D7FF;
   --color-text-secondary:#72FFFF;
