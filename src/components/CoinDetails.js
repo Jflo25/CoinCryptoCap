@@ -13,8 +13,7 @@ const CoinDetails = ({ coin }) => {
         <div>{coin.market_cap_rank}</div>
         <div className="flex items-center">
           <img
-            className="w-7 mx-2
-         rounded-full"
+            className="w-7 mx-2 rounded-full"
             src={coin.image}
             alt={coin.id}
           />
