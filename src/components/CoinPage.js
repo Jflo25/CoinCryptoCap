@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import CoinDescription from "./CoinDescription";
 
 const CoinPage = () => {
   const params = useParams();
@@ -25,9 +26,9 @@ const CoinPage = () => {
         {coin.name}
       </h2>
 
-      <div className="Coin-Content flex w-full sm:w-60 mb-4 mx-auto">
-        <div className="rows-container flex flex-col">
-          <div className="1st-row text-center items-center flex justify-around mx-2 w-full">
+      <div className="Coin-Content flex w-full mb-4 ">
+        <div className="rows-container flex flex-col mx-auto w-full">
+          <div className="Coin-info text-center items-center flex justify-around w-full mb-5">
             <div className="coin-ranking ">
               <p>Rank #{coin.market_cap_rank}</p>
             </div>
@@ -39,8 +40,11 @@ const CoinPage = () => {
             </span>
 
             <p>{coin.name}</p>
-            <p>{coin.symbol}</p>
-            <p className="coin-price flex">
+            {coin.symbol ? <p>{coin.symbol.toUpperCase()}</p> : null}
+          </div>
+
+          <div className="coin-price-row text-center mb-4 mx-auto">
+            <p className="coin-price flex text-lg">
               $
               {coin.market_data?.current_price ? (
                 <h1>{coin.market_data.current_price.usd.toLocaleString()}</h1>
@@ -48,12 +52,63 @@ const CoinPage = () => {
             </p>
           </div>
 
-          <div className="second-row">
-            <div className="price-change">
-              <p>{coin.market_data?.price_change_percentage_24h}</p>
-              <p>{coin.market_data?.price_change_percentage_7d}</p>
-              <p>{coin.market_data?.price_change_percentage_30d}</p>
-              <p>{coin.market_data?.price_change_percentage_1y}</p>
+          <div className="price-change flex flex-col">
+            <div className="text-center pb-5">
+              <p>Price Change</p>
+            </div>
+            <div className="price-change-row flex justify-around mb-2">
+              <p>
+                24h:
+                {coin.market_data?.price_change_percentage_24h &&
+                  coin.market_data.price_change_percentage_24h.toFixed(2)}
+                %
+              </p>
+              <p>
+                7d:
+                {coin.market_data?.price_change_percentage_7d &&
+                  coin.market_data.price_change_percentage_7d.toFixed(2)}
+                %
+              </p>
+            </div>
+            <div className="price-change-row flex justify-around">
+              <p>
+                30d:
+                {coin.market_data?.price_change_percentage_30d &&
+                  coin.market_data.price_change_percentage_30d.toFixed(2)}
+                %
+              </p>
+              <p>
+                1y:
+                {coin.market_data?.price_change_percentage_1y &&
+                  coin.market_data.price_change_percentage_1y.toFixed(2)}
+                %
+              </p>
+            </div>
+          </div>
+          <div className="bottom-info flex justify-around py-5">
+            <div className="row text-center">
+              <h1>Market Cap</h1>
+              {coin.market_data &&
+              coin.market_data.market_cap &&
+              coin.market_data.market_cap.usd ? (
+                <p>${coin.market_data.market_cap.usd.toLocaleString()} </p>
+              ) : null}
+            </div>
+
+            <div className="row">
+              <h1>Max Supply</h1>
+              {coin.market_data ? (
+                <p>{coin.market_data.max_supply.toLocaleString()}</p>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="bottom-info flex justify-center ">
+            <div className="row text-center">
+              <h1>Circulating Supply</h1>
+              {coin.market_data ? (
+                <p>{coin.market_data.circulating_supply.toLocaleString()}</p>
+              ) : null}
             </div>
           </div>
         </div>
@@ -61,7 +116,7 @@ const CoinPage = () => {
 
       <div className="body w-full">
         <div className="description p-6 ">
-          <p>{coin.description ? coin.description.en : ""}</p>
+          <CoinDescription coin={coin} />
         </div>
       </div>
     </div>
