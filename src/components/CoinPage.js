@@ -26,13 +26,13 @@ const CoinPage = () => {
         {coin.name}
       </h2>
 
-      <div className="rows-container flex flex-col mx-auto w-full">
-        <div className="Coin-info flex items-center w-full mb-5">
-          <div className="relative">
-            <div className="coin-ranking absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 md:-top-0 md:left-auto bg-purple-500 text-white px-3 py-2 rounded-md shadow-lg">
-              <p>Rank #{coin.market_cap_rank}</p>
+      <div className="rows-container flex flex-col mx-auto w-full ">
+        <div className="Coin-info flex items-center justify-center w-full mb-5 bg">
+          <div className="relative ">
+            <div className="coin-ranking absolute top-0  left-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-purple-500 text-white px-3 py-1 rounded-md shadow-lg">
+              <p className="text-sm  ">Rank #{coin.market_cap_rank}</p>
             </div>
-            <span className="Coin-heading z-20">
+            <span className="Coin-heading ">
               {coin.image ? (
                 <img className="h-[50px]" src={coin.image.small} alt="" />
               ) : null}
@@ -100,7 +100,7 @@ const CoinPage = () => {
 
           <div className="row">
             <h1>Max Supply</h1>
-            {coin.market_data ? (
+            {coin.market_data && coin.market_data.max_supply ? (
               <p>{coin.market_data.max_supply.toLocaleString()}</p>
             ) : null}
           </div>
@@ -109,7 +109,7 @@ const CoinPage = () => {
         <div className="bottom-info flex justify-center ">
           <div className="row text-center">
             <h1>Circulating Supply</h1>
-            {coin.market_data ? (
+            {coin.market_data && coin.market_data.circulating_supply ? (
               <p>{coin.market_data.circulating_supply.toLocaleString()}</p>
             ) : null}
           </div>
