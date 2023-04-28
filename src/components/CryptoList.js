@@ -30,7 +30,7 @@ const CryptoList = ({ coins }) => {
             <th>24hr</th>
             <th className="hidden md:table-cell">24hr Volume</th>
             <th className="hidden sm:table-cell">Mkt Cap</th>
-            <th>Last 7 Days</th>
+            <th>7d</th>
           </tr>
         </thead>
         <tbody>

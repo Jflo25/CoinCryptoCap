@@ -1,0 +1,38 @@
+/* Container to hold the sliding coins */
+.coins-container {
+   position: relative;
+   height: 200px;
+ }
+ 
+ /* Transition group for managing sliding transitions */
+ .coins-transition-group {
+   position: absolute;
+   width: 100%;
+ }
+ 
+ /* Initial state of the coin when it enters the view */
+ .coin-enter {
+   opacity: 0;
+   transform: translateX(100%);
+ }
+ 
+ /* State of the coin when it's fully entered the view */
+ .coin-enter-active {
+   opacity: 1;
+   transform: translateX(0);
+   transition: all 600ms ease-in; /* Sliding speed and easing function */
+ }
+ 
+ /* Initial state of the coin when it starts to exit the view */
+ .coin-exit {
+   opacity: 1;
+   transform: translateX(0%);
+ }
+ 
+ /* State of the coin when it's fully exited the view */
+ .coin-exit-active {
+   opacity: 0;
+   transform: translateX(-100%);
+   transition: all 500ms ease-in; /* Sliding speed and easing function */
+ }
+ 
