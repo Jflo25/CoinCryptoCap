@@ -19,10 +19,9 @@ const CryptoList = ({ coins }) => {
         </form>
       </div>
 
-      <table className="w-full border-collapse text-center ">
+      <table className="Crypto-Table w-full border-collapse text-center ">
         <thead>
-          <tr className="border-b flex justify-between">
-            <th></th>
+          <tr className="Table-Columns border-b flex justify-between">
             <th className="px-4">#</th>
             <th className="text-left">Coin</th>
             <th></th>
@@ -33,7 +32,7 @@ const CryptoList = ({ coins }) => {
             <th>7d</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="Crypto-Rows">
           {coins
             .filter((value) => {
               if (search === "") {
