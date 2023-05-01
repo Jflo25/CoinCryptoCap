@@ -40,9 +40,9 @@ const CoinPage = ({ coins }) => {
             </span>
           </div>
 
-          <div className="coin-symbol-and-price text-center mt-5 md:mt-0 md:ml-4 flex flex-col">
+          <div className="coin-symbol-and-price text-center mt-2 md:mt-0 md:ml-4 flex flex-col">
             {coin.symbol ? (
-              <p className="mb-0">{coin.symbol.toUpperCase()}</p>
+              <p className="mb-0">({coin.symbol.toUpperCase()}/USD)</p>
             ) : null}
             <div className="coin-price text-lg ">
               {coin.market_data?.current_price ? (
