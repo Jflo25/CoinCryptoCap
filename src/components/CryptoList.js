@@ -21,15 +21,15 @@ const CryptoList = ({ coins }) => {
 
       <table className="Crypto-Table w-full border-collapse text-center ">
         <thead>
-          <tr className="Table-Columns border-b flex justify-between">
-            <th className="px-4">#</th>
-            <th className="text-left">Coin</th>
+          <tr className="Table-Column flex justify-between mr-4">
             <th></th>
+            <th className="">#</th>
+            <th className="text-left">Coin</th>
             <th>Price</th>
-            <th>24hr</th>
-            <th className="hidden md:table-cell">24hr Volume</th>
-            <th className="hidden sm:table-cell">Mkt Cap</th>
-            <th>7d</th>
+            <th>24h</th>
+            <th className="hidden md:table-cell">24h Volume</th>
+            <th className="hidden md:table-cell">Mkt Cap</th>
+            <th>last 7 days</th>
           </tr>
         </thead>
         <tbody className="Crypto-Rows">

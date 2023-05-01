@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CoinDetails = ({ coin }) => {
   return (
     <Link to={`/coin/${coin.id}`} className="block">
-      <div className="grid grid-cols-9 items-center h-[80px] border-b w-full ">
+      <div className="flex justify-between items-center h-[80px] border-b w-full px-4 ">
         <div className="fav-star ">
           <AiOutlineStar />
         </div>
@@ -42,7 +42,7 @@ const CoinDetails = ({ coin }) => {
         <div>
           <p className="hidden sm:block">${coin.market_cap.toLocaleString()}</p>
         </div>
-        <div>
+        <div className=" w-28">
           <Sparklines data={coin.sparkline_in_7d.price}>
             <SparklinesLine color="teal" />
           </Sparklines>

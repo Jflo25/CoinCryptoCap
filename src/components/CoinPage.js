@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import CoinDescription from "./CoinDescription";
+import { Sparklines, SparklinesLine } from "react-sparklines";
 
-const CoinPage = () => {
+const CoinPage = ({ coins }) => {
   const params = useParams();
   const [coin, setCoin] = useState({});
 
-  const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}`;
+  const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?sparkline=true`;
 
   useEffect(() => {
     axios
@@ -51,12 +52,20 @@ const CoinPage = () => {
               ) : null}
             </div>
           </div>
+          <div className="graph w-72 mt-5 text-xs">
+            {" "}
+            <p className="text-right">7day</p>
+            <Sparklines data={coin.market_data?.sparkline_7d.price}>
+              <SparklinesLine color="teal" />
+            </Sparklines>
+          </div>
         </div>
 
         <div className="price-change flex flex-col my-5  bg-[#1d1f47] rounded-xl">
           <div className="text-center py-5">
-            <h3 className="text-lg text-cyan-200">Price Change</h3>
+            <h3 className="text-lg text-cyan-200">Market Status</h3>
           </div>
+
           <div className="price-change-row flex justify-around mb-2">
             <div>
               <p>
